@@ -1,42 +1,34 @@
 const express= require('express');
-const app= express();
-var n1,n2,result;
-
+const app= express()
 
 app.get('/add', (req,res) => {
-    console.log('addition')
-    console.log(n1=(req.query.num1))
-    console.log(n2=(req.query.num2))
-    result=(Number(n1) +Number(n2))
-    res.send(`answer is ${result}`)
-
+    logInput(req.query)
+    const {num1,num2}=(req.query)
+    res.send(`answer is ${parseInt(num1)+parseInt(num2)}`)
 })
 
 app.get('/sub', (req,res) => {
-    console.log('subrations')
-    console.log(n1=(req.query.num1))
-    console.log(n2=(req.query.num2))
-    result=(Number(n1) - Number(n2))
-    res.send(`answer is ${result}`)
-
+    logInput(req.query)
+    const {num1,num2}=(req.query)
+    res.send(`answer is ${parseInt(num1)+parseInt(num2)}`)
 })
 
 app.get('/multiply', (req,res) => {
-    console.log('multiplication')
-    console.log(n1=(req.query.num1))
-    console.log(n2=(req.query.num2))
-    result=(Number(n1) * Number(n2))
-    res.send(`answer is ${result}`)
-
+    logInput(req.query)
+    const {num1,num2}=(req.query)
+    res.send(`answer is ${parseInt(num1)+parseInt(num2)}`)
 })
 
 app.get('/divide', (req,res) => {
-    console.log('division')
-    console.log(n1=(req.query.num1))
-    console.log(n2=(req.query.num2))
-    result=(Number(n1)/Number(n2))
-    res.send(`answer is ${result}`)
-
+    logInput(req.query)
+    const {num1,num2}=(req.query)
+    res.send(`answer is ${parseInt(num1)+parseInt(num2)}`)
 })
 
 app.listen(4000);
+
+function logInput(query){
+    const {num1,num2}=(req.query)
+    console.log('num1 is', num1)
+    console.log('num2 is', num2)
+}
